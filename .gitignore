@@ -1,0 +1,10 @@
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Generated PDFs
+*.pdf
+
+# IDEs
+.vscode/
+.idea/

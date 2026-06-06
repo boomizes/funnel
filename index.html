@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D&D Level-0 Character Funnel Generator</title>
+    <meta name="description" content="Generate Level-0 character sheets for D&D or DCC RPG funnels. View, curate, and export character groups to PDF.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom Style -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="view-initial menu-hidden">
+    <div class="glow-container">
+        <div class="radial-glow"></div>
+    </div>
+
+    <!-- INITIAL VIEW: Header and Control Panel -->
+    <div id="view-initial" class="view-segment">
+        <header class="app-header">
+            <div class="header-inner">
+                <span class="decorative-icon"><span class="icon-svg icon-stroke"><svg viewBox="0 0 24 24"><path d="M5.5 18.5l2.5-2.5"/><path d="M17.5 6.5l-9 9"/><path d="M7.5 13.5l3 3"/><path d="M18.5 18.5l-2.5-2.5"/><path d="M6.5 6.5l9 9"/><path d="M16.5 13.5l-3 3"/></svg></span></span>
+                <h1>D&D Level-0 Character Funnel</h1>
+                <p class="subtitle">Roll groups of zero-level peasants, curate their ranks, and print sheets for your funnel campaigns</p>
+                <div class="header-divider">
+                    <span class="divider-gem"><span class="icon-svg icon-fill"><svg viewBox="0 0 24 24"><path d="M12 2L2 12l10 10 10-10L12 2z"/></svg></span></span>
+                </div>
+            </div>
+        </header>
+
+        <main class="app-container">
+            <section class="controls-panel">
+                <div class="control-group">
+                    <label for="char-count">
+                        <span>Number of Characters</span>
+                        <span id="char-count-val" class="badge">4</span>
+                    </label>
+                    <div class="slider-wrapper">
+                        <input type="range" id="char-count" min="1" max="24" value="4" step="1">
+                    </div>
+                </div>
+
+                <div class="actions-group">
+                    <button id="btn-generate" class="btn btn-primary">
+                        <span class="btn-icon"><span class="icon-svg icon-stroke"><svg viewBox="0 0 24 24"><polygon points="12,2 22,7.5 22,16.5 12,22 2,16.5 2,7.5" /><polygon points="12,2 12,8.5 2,7.5" /><polygon points="12,2 12,8.5 22,7.5" /><polygon points="12,8.5 2,7.5 7,16.5" /><polygon points="12,8.5 22,7.5 17,16.5" /><polygon points="12,8.5 7,16.5 17,16.5" /><polygon points="7,16.5 17,16.5 12,22" /><polygon points="2,16.5 7,16.5 12,22" /><polygon points="22,16.5 17,16.5 12,22" /><polygon points="2,7.5 2,16.5 7,16.5" /><polygon points="22,7.5 22,16.5 17,16.5" /></svg></span></span>
+                        <span class="btn-label">Roll Characters</span>
+                    </button>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- RESULTS VIEW: Top Menu Bar and Character Sheets Grid -->
+    <div id="view-results" class="view-segment">
+        <!-- Fixed Top Menu Bar -->
+        <header id="top-menu-bar" class="top-menu-bar">
+            <div class="menu-bar-container">
+                <button id="btn-back-to-panel" class="btn btn-secondary" title="Roll a new group of characters">
+                    <span class="btn-icon"><span class="icon-svg icon-stroke"><svg viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12" /><polyline points="12 19 5 12 12 5" /></svg></span></span>
+                    <span class="btn-label">Roll New</span>
+                </button>
+                
+                <div class="menu-actions-right">
+                    <div class="checkbox-group" title="Leaves name field blank for players to write in">
+                        <label class="switch-label" for="exclude-name">
+                            <div class="switch-wrapper">
+                                <input type="checkbox" id="exclude-name">
+                                <span class="switch-slider"></span>
+                            </div>
+                            <div class="label-text">
+                                <span class="label-title">Exclude Names</span>
+                            </div>
+                        </label>
+                    </div>
+                    <button id="btn-add-char" class="btn btn-primary" title="Add a random peasant">
+                        <span class="btn-icon"><span class="icon-svg icon-stroke"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19" /><line x1="5" y1="12" x2="19" y2="12" /></svg></span></span>
+                        <span class="btn-label">Add Peasant</span>
+                    </button>
+                    <button id="btn-download" class="btn btn-primary" disabled title="Export characters to PDF">
+                        <span class="btn-icon"><span class="icon-svg icon-stroke"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><polyline points="14 2 14 8 20 8" /><line x1="16" y1="13" x2="8" y2="13" /><line x1="16" y1="17" x2="8" y2="17" /><polyline points="10 9 9 9 8 9" /></svg></span></span>
+                        <span class="btn-label">Export PDF</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Floating handle/lip attached to the bottom of the header -->
+            <button id="menu-bar-handle" class="menu-bar-handle" title="Show controls">
+                <span class="handle-icon"><span class="icon-svg icon-stroke"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9" /></svg></span></span>
+                <span class="handle-label">Show Controls</span>
+            </button>
+        </header>
+
+        <main class="app-container">
+
+            <!-- Carousel Controls & Indicator -->
+            <div class="carousel-controls">
+                <button id="carousel-prev" class="btn btn-secondary btn-carousel-nav" title="Previous Peasant">
+                    <span class="nav-arrow"><span class="icon-svg icon-stroke"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6" /></svg></span></span>
+                </button>
+                <div id="carousel-indicator" class="carousel-indicator">0 / 0</div>
+                <button id="carousel-next" class="btn btn-secondary btn-carousel-nav" title="Next Peasant">
+                    <span class="nav-arrow"><span class="icon-svg icon-stroke"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6" /></svg></span></span>
+                </button>
+            </div>
+
+            <div class="carousel-viewport">
+                <section id="characters-grid" class="characters-grid">
+                    <!-- Populated dynamically -->
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loading-overlay" class="loading-overlay hidden">
+        <div class="spinner-box">
+            <div class="d20-spinner">
+                <div class="d20-face face-1"></div>
+                <div class="d20-face face-2"></div>
+            </div>
+            <p class="loading-text">Rolling stats & drafting professions...</p>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast hidden">
+        <span id="toast-message">Notification message</span>
+    </div>
+
+    <!-- RPG Confirmation Modal -->
+    <div id="confirm-modal" class="modal-overlay">
+        <div class="modal-box">
+            <h2 class="modal-title"><span class="icon-svg icon-stroke"><svg viewBox="0 0 24 24"><path d="M12 2C7.58 2 4 5.58 4 10c0 2.5 1.14 4.73 3 6.18V20a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-3.82c1.86-1.45 3-3.68 3-6.18 0-4.42-3.58-8-8-8z" /><circle cx="9" cy="10" r="1" fill="currentColor" /><circle cx="15" cy="10" r="1" fill="currentColor" /><path d="M12 13v2" /><path d="M9 18h6" /><path d="M10 16v4" /><path d="M14 16v4" /></svg></span> Peasant's Fate</h2>
+            <p class="modal-message">Are you sure <span id="confirm-char-prefix"></span><strong id="confirm-char-name">Peasant</strong> has met a tragic end?</p>
+            <div class="modal-actions">
+                <button id="btn-modal-cancel" class="btn btn-secondary">Spare Peasant</button>
+                <button id="btn-modal-confirm" class="btn btn-accent">Confirm Death</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+    <script type="module" src="app.js"></script>
+</body>
+</html>
