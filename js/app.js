@@ -363,7 +363,7 @@ function renderCharacters() {
         }).join('');
         
         // Add Starting Coins to inventory visually
-        inventoryHtml += `<li class="coins-item"><img src="coin.png" class="icon-png" alt="Coins"> ${char.coins}</li>`;
+        inventoryHtml += `<li class="coins-item"><img src="images/coin.png" class="icon-png" alt="Coins"> ${char.coins}</li>`;
 
         const nameDisplay = excludeNameState 
             ? `<h3 class="card-title" style="visibility: hidden;">&nbsp;</h3>`
@@ -372,7 +372,7 @@ function renderCharacters() {
         card.innerHTML = `
             <!-- Action buttons overlay -->
             <div class="card-actions-overlay">
-                <button class="card-btn btn-delete" title="Mark this peasant as deceased" data-idx="${idx}"><img src="skull.png" class="icon-png" alt="Delete"></button>
+                <button class="card-btn btn-delete" title="Mark this peasant as deceased" data-idx="${idx}"><img src="images/skull.png" class="icon-png" alt="Delete"></button>
             </div>
 
             <header class="card-header">
@@ -391,21 +391,21 @@ function renderCharacters() {
 
             <section class="card-vitals">
                 <div class="vital-item" title="Hit Points (1d4 + Con Mod)">
-                    <span class="vital-icon"><img src="heart.png" class="icon-png" alt="HP"></span>
+                    <span class="vital-icon"><img src="images/heart.png" class="icon-png" alt="HP"></span>
                     <div class="vital-details">
                         <span class="vital-label">HP</span>
                         <span class="vital-value">${char.hp}</span>
                     </div>
                 </div>
                 <div class="vital-item" title="Armor Class (10 + Dex Mod)">
-                    <span class="vital-icon"><img src="shield.png" class="icon-png" alt="AC"></span>
+                    <span class="vital-icon"><img src="images/shield.png" class="icon-png" alt="AC"></span>
                     <div class="vital-details">
                         <span class="vital-label">AC</span>
                         <span class="vital-value">${char.ac}</span>
                     </div>
                 </div>
                 <div class="vital-item" title="Speed in feet">
-                    <span class="vital-icon"><img src="speed.png" class="icon-png" alt="Speed"></span>
+                    <span class="vital-icon"><img src="images/speed.png" class="icon-png" alt="Speed"></span>
                     <div class="vital-details">
                         <span class="vital-label">Speed</span>
                         <span class="vital-value">${char.speed} ft</span>

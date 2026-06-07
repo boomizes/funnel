@@ -27,17 +27,27 @@ Generate a band of zero-level peasants, curate their ranks as they face their tr
 
 ```
 funnel/
+├── css/
+│   └── style.css             # Medieval CSS design tokens, custom animations, transitions, rules
+├── js/
+│   ├── app.js                # Core state controller, event handlers, and localStorage sync
+│   ├── carousel.js           # Touch swiping controller for mobile slideshow
+│   ├── generator.js          # Bracket evaluator, dice rolling, and attribute mapping logic
+│   ├── parser.js             # Perchance tree parser for resolving weighted lists
+│   ├── pdf-exporter.js       # Core PDF builder drawing on US Letter sheets
+│   └── ui-utils.js           # Toast alerts, loading spin triggers, mobile viewport height fix
+├── images/
+│   ├── coin.png              # Coin status icon
+│   ├── dice.png              # Dice icon for generation triggers
+│   ├── heart.png             # HP vital icon
+│   ├── pdf.png               # PDF export button icon
+│   ├── shield.png            # AC vital icon
+│   ├── skull.png             # Death modal/overlay icon
+│   ├── speed.png             # Speed vital icon
+│   ├── swords.png            # App header decorative icon
+│   └── villager.png          # Add Peasant button icon
 ├── index.html            # Main UI layout, D20 loader, modal templates, CDN script loaders
-├── style.css             # Medieval CSS design tokens, custom animations, transitions, rules
-├── app.js                # Core state controller, event handlers, and localStorage sync
-├── generator.js          # Bracket evaluator, dice rolling, and attribute mapping logic
-├── parser.js             # Perchance tree parser for resolving weighted lists
-├── carousel.js           # Touch swiping controller for mobile slideshow
-├── pdf-exporter.js       # Core PDF builder drawing on US Letter sheets
-├── ui-utils.js           # Toast alerts, loading spin triggers, mobile viewport height fix
-├── perchance_lists.txt   # Custom RPG list database in Perchance text layout (excluding name data)
-├── first_names.txt       # Extracted flat list of first names loaded dynamically
-├── last_name_components.txt # Extracted flat list of last name components loaded dynamically
+├── perchance_lists.txt   # Custom RPG list database in Perchance text layout
 ├── README.md             # This document
 └── AGENT.md              # AI Coding Assistant architectural reference document
 ```
