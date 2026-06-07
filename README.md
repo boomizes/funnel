@@ -35,7 +35,8 @@ funnel/
 ├── carousel.js           # Touch swiping controller for mobile slideshow
 ├── pdf-exporter.js       # Core PDF builder drawing on US Letter sheets
 ├── ui-utils.js           # Toast alerts, loading spin triggers, mobile viewport height fix
-├── perchance_lists.txt   # Custom RPG list database in Perchance text layout
+├── perchance_lists.txt   # Custom RPG list database in Perchance text layout (excluding first names)
+├── first_names.txt       # Extracted flat list of first names loaded dynamically
 ├── README.md             # This document
 └── AGENT.md              # AI Coding Assistant architectural reference document
 ```

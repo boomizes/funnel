@@ -1,4 +1,4 @@
-import { parsePerchanceText } from './parser.js';
+import { parsePerchanceText, PerchanceNode } from './parser.js';
 import { generateCharacter } from './generator.js';
 import { showToast, showLoading, adjustViewportHeight } from './ui-utils.js';
 import { initSwipe, updateCarousel } from './carousel.js';
@@ -127,15 +127,27 @@ document.addEventListener('DOMContentLoaded', () => {
         saveAppState();
     });
 
-    // Fetch and parse perchance lists
-    fetch('perchance_lists.txt')
-        .then(response => {
+    // Fetch and parse perchance lists and first names
+    Promise.all([
+        fetch('perchance_lists.txt').then(response => {
             if (!response.ok) throw new Error('Failed to load perchance_lists.txt');
             return response.text();
+        }),
+        fetch('first_names.txt').then(response => {
+            if (!response.ok) throw new Error('Failed to load first_names.txt');
+            return response.text();
         })
-        .then(text => {
-            parsedRoots = parsePerchanceText(text);
-            console.log('Perchance lists successfully loaded and parsed.');
+    ])
+        .then(([perchanceText, namesText]) => {
+            parsedRoots = parsePerchanceText(perchanceText);
+            
+            // Construct FirstName node manually from first_names.txt
+            const firstNames = namesText.split(/\r?\n/).map(line => line.trim()).filter(Boolean);
+            const firstNameNode = new PerchanceNode("FirstName", 0);
+            firstNameNode.children = firstNames.map(name => new PerchanceNode(name, 2));
+            parsedRoots.FirstName = firstNameNode;
+
+            console.log('Perchance lists and first names successfully loaded.');
         })
         .catch(err => {
             console.error(err);

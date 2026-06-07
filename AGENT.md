@@ -28,7 +28,8 @@ The codebase is organized as follows:
 *   [`carousel.js`](file:///home/boomizes/code/funnel/carousel.js): Implements touch/swipe gestures and slide animations for the mobile card view.
 *   [`pdf-exporter.js`](file:///home/boomizes/code/funnel/pdf-exporter.js): Forges the print-friendly 2x2 PDF layout of character sheets.
 *   [`ui-utils.js`](file:///home/boomizes/code/funnel/ui-utils.js): Exposes toast alerts, loading overlays, and mobile layout helper hacks.
-*   [`perchance_lists.txt`](file:///home/boomizes/code/funnel/perchance_lists.txt): Custom raw data file containing tables, weights, D&D classes/professions, names, and equipment templates.
+*   [`perchance_lists.txt`](file:///home/boomizes/code/funnel/perchance_lists.txt): Custom raw data file containing tables, weights, D&D classes/professions, names, and equipment templates (excluding first names).
+*   [`first_names.txt`](file:///home/boomizes/code/funnel/first_names.txt): Flattened text file containing a line-separated list of first names, loaded dynamically in `app.js`.
 
 ---
 
