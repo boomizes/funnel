@@ -106,7 +106,7 @@ function evaluateString(s, roots, context) {
 
         let replacement = "";
         if (content.startsWith("dice(")) {
-            const diceMatch = content.match(/["']?([^"']+)["']?/);
+            const diceMatch = content.match(/dice\(\s*["']?([^"']+)["']?\s*\)/);
             if (diceMatch) {
                 replacement = String(rollDice(diceMatch[1]));
             } else {
