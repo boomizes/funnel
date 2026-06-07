@@ -23,12 +23,12 @@ The codebase is organized as follows:
 *   [`index.html`](file:///home/boomizes/code/funnel/index.html): Defines the DOM structure, including initial configuration panels, results grids, dialogs, spinners, and loads standard CDN scripts (like `pdf-lib`).
 *   [`css/style.css`](file:///home/boomizes/code/funnel/css/style.css): Holds the design system, typography, keyframes, transitions, modal display logic, and theme configurations.
 *   [`js/app.js`](file:///home/boomizes/code/funnel/js/app.js): Orchestrates app state, event binding, coordination between parser, generator, UI utilities, and local storage synchronization.
-*   [`js/parser.js`](file:///home/boomizes/code/funnel/js/parser.js): Reads and parses `perchance_lists.txt` into an in-memory hierarchy tree of weighted nodes.
+*   [`js/parser.js`](file:///home/boomizes/code/funnel/js/parser.js): Reads and parses `data/lookup.txt` into an in-memory hierarchy tree of weighted nodes.
 *   [`js/generator.js`](file:///home/boomizes/code/funnel/js/generator.js): Evaluates parsed Perchance trees, calculates attributes, modifiers, weapon data, and starting inventories.
 *   [`js/carousel.js`](file:///home/boomizes/code/funnel/js/carousel.js): Implements touch/swipe gestures and slide animations for the mobile card view.
 *   [`js/pdf-exporter.js`](file:///home/boomizes/code/funnel/js/pdf-exporter.js): Forges the print-friendly 2x2 PDF layout of character sheets.
 *   [`js/ui-utils.js`](file:///home/boomizes/code/funnel/js/ui-utils.js): Exposes toast alerts, loading overlays, and mobile layout helper hacks.
-*   [`perchance_lists.txt`](file:///home/boomizes/code/funnel/perchance_lists.txt): Custom raw data file containing tables, weights, D&D classes/professions, names, and equipment templates.
+*   [`data/lookup.txt`](file:///home/boomizes/code/funnel/data/lookup.txt): Custom raw data file containing tables, weights, D&D classes/professions, names, and equipment templates.
 *   `images/`: Contains PNG icons (`coin.png`, `dice.png`, `heart.png`, `pdf.png`, `shield.png`, `skull.png`, `speed.png`, `swords.png`, `villager.png`) used for UI and status/vital markers.
 
 ---
@@ -36,7 +36,7 @@ The codebase is organized as follows:
 ## 3. Core Architecture Details
 
 ### A. Perchance Parsing & Dice Roller (`js/parser.js`, `js/generator.js`)
-*   The data source `perchance_lists.txt` is based on the [Perchance.org](https://perchance.org) syntax, represented in tab-indented node trees.
+*   The data source `data/lookup.txt` is based on the [Perchance.org](https://perchance.org) syntax, represented in tab-indented node trees.
 *   `parser.js` builds trees where node weights are designated using `^weight` (e.g. `Human^4`).
 *   `generator.js` implements a custom string parser that recursively evaluates bracketed lists `[...]`, braces choice selectors `{a|b|c}`, numeric ranges `{2-4}`, and calls the custom dice rolling engine (e.g., `dice("3d6")`).
 *   The generator binds modifiers to standard D&D stats, referencing them as properties (like `[strbonus]`, `[dexbonus]`).
@@ -77,5 +77,5 @@ The codebase is organized as follows:
 ## 5. Maintenance Checklist for Future Runs
 
 *   Verify all JS files keep standard ES6 import rules and relative paths (e.g. `import { foo } from './bar.js';`).
-*   Check that `perchance_lists.txt` remains correctly tab-indented; standard space/tab mix-ups will break the recursive hierarchy parser.
+*   Check that `data/lookup.txt` remains correctly tab-indented; standard space/tab mix-ups will break the recursive hierarchy parser.
 *   When changing styling, update `css/style.css` in a way that preserves CSS variables for colors, transitions, and glow coordinates to keep themes uniform.

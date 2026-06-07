@@ -46,8 +46,9 @@ funnel/
 │   ├── speed.png             # Speed vital icon
 │   ├── swords.png            # App header decorative icon
 │   └── villager.png          # Add Peasant button icon
+├── data/
+│   └── lookup.txt            # Custom RPG list database in Perchance text layout
 ├── index.html            # Main UI layout, D20 loader, modal templates, CDN script loaders
-├── perchance_lists.txt   # Custom RPG list database in Perchance text layout
 ├── README.md             # This document
 └── AGENT.md              # AI Coding Assistant architectural reference document
 ```
@@ -79,7 +80,7 @@ Deploy this repository directly to static platforms like **GitHub Pages**, **Ver
 
 ## 🛠 Customizing Generator Tables
 
-The generator parses character options from `perchance_lists.txt`. You can edit this file to add or modify professions, equipment, starting items, names, or races. The parser reads standard Perchance syntax structures:
+The generator parses character options from `data/lookup.txt`. You can edit this file to add or modify professions, equipment, starting items, names, or races. The parser reads standard Perchance syntax structures:
 
 *   **Weighted Choice Syntax**: Append `^weight` (e.g., `Human^4` or `Elf^1`) to balance races or professions.
 *   **Bracketed Lists**: Use `[ListName]` to instruct the parser to recursively fetch a random choice from that table.

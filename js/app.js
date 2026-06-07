@@ -122,9 +122,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Fetch and parse perchance lists
-    fetch('perchance_lists.txt')
+    fetch('data/lookup.txt')
         .then(response => {
-            if (!response.ok) throw new Error('Failed to load perchance_lists.txt');
+            if (!response.ok) throw new Error('Failed to load data/lookup.txt');
             return response.text();
         })
         .then(perchanceText => {
