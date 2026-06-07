@@ -369,7 +369,7 @@ function renderCharacters() {
         }).join('');
         
         // Add Starting Coins to inventory visually
-        inventoryHtml += `<li class="coins-item"><span class="icon-svg icon-stroke"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" /><circle cx="12" cy="12" r="5" fill="currentColor" fill-opacity="0.2" /><line x1="12" y1="8" x2="12" y2="16" /></svg></span> ${char.coins}</li>`;
+        inventoryHtml += `<li class="coins-item"><img src="coin.png" class="icon-png" alt="Coins"> ${char.coins}</li>`;
 
         const nameDisplay = excludeNameState 
             ? `<div class="card-title nameless-input">Name: ______________________</div>`
@@ -378,7 +378,7 @@ function renderCharacters() {
         card.innerHTML = `
             <!-- Action buttons overlay -->
             <div class="card-actions-overlay">
-                <button class="card-btn btn-delete" title="Mark this peasant as deceased" data-idx="${idx}"><span class="icon-svg icon-stroke"><svg viewBox="0 0 24 24"><path d="M12 2C7.58 2 4 5.58 4 10c0 2.5 1.14 4.73 3 6.18V20a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-3.82c1.86-1.45 3-3.68 3-6.18 0-4.42-3.58-8-8-8z" /><circle cx="9" cy="10" r="1" fill="currentColor" /><circle cx="15" cy="10" r="1" fill="currentColor" /><path d="M12 13v2" /><path d="M9 18h6" /><path d="M10 16v4" /><path d="M14 16v4" /></svg></span></button>
+                <button class="card-btn btn-delete" title="Mark this peasant as deceased" data-idx="${idx}"><img src="skull.png" class="icon-png" alt="Delete"></button>
             </div>
 
             <header class="card-header">
@@ -397,21 +397,21 @@ function renderCharacters() {
 
             <section class="card-vitals">
                 <div class="vital-item" title="Hit Points (1d4 + Con Mod)">
-                    <span class="vital-icon"><span class="icon-svg icon-fill"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" /></svg></span></span>
+                    <span class="vital-icon"><img src="heart.png" class="icon-png" alt="HP"></span>
                     <div class="vital-details">
                         <span class="vital-label">HP</span>
                         <span class="vital-value">${char.hp}</span>
                     </div>
                 </div>
                 <div class="vital-item" title="Armor Class (10 + Dex Mod)">
-                    <span class="vital-icon"><span class="icon-svg icon-stroke"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></svg></span></span>
+                    <span class="vital-icon"><img src="shield.png" class="icon-png" alt="AC"></span>
                     <div class="vital-details">
                         <span class="vital-label">AC</span>
                         <span class="vital-value">${char.ac}</span>
                     </div>
                 </div>
                 <div class="vital-item" title="Speed in feet">
-                    <span class="vital-icon"><span class="icon-svg icon-stroke"><svg viewBox="0 0 24 24"><path d="M7 4h3v9l8 2v3a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z" /><path d="M5 14h5" /></svg></span></span>
+                    <span class="vital-icon"><img src="speed.png" class="icon-png" alt="Speed"></span>
                     <div class="vital-details">
                         <span class="vital-label">Speed</span>
                         <span class="vital-value">${char.speed} ft</span>

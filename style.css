@@ -826,8 +826,8 @@ body.menu-hidden .top-menu-bar {
 
 .card-actions-overlay {
     position: absolute;
-    top: 8px;
-    right: 8px;
+    top: 10px;
+    right: 10px;
     z-index: 10;
     display: flex;
     gap: 4px;
@@ -1356,12 +1356,12 @@ body:not(.menu-hidden) .handle-icon .icon-svg {
     display: inline-flex !important;
     align-items: center;
     justify-content: center;
-    width: 1.25rem;
-    height: 1.25rem;
+    width: 24px;
+    height: 24px;
 }
 
 .vital-icon .icon-svg {
-    font-size: 1.15rem;
+    font-size: 20px;
 }
 
 /* HP color override (Heart icon fill) */
@@ -1413,5 +1413,36 @@ body:not(.menu-hidden) .handle-icon .icon-svg {
 
 .modal-title .icon-svg {
     font-size: 1.5rem;
+}
+
+/* PNG Icon System */
+.icon-png {
+    display: inline-block;
+    vertical-align: middle;
+    width: 12px;
+    height: 12px;
+    object-fit: contain;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+}
+
+.vital-icon .icon-png {
+    width: 24px;
+    height: 24px;
+}
+
+.coins-item .icon-png {
+    width: 12px;
+    height: 12px;
+}
+
+.card-btn.btn-delete .icon-png {
+    width: 24px;
+    height: 24px;
+}
+
+.modal-title .icon-png {
+    width: 24px;
+    height: 24px;
 }
 
