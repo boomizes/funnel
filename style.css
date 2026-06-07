@@ -510,7 +510,7 @@ body.menu-hidden .top-menu-bar {
     align-items: center;
     justify-content: center;
     gap: 1.5rem;
-    margin: 0 auto 1.2rem auto;
+    margin: 0 auto 0 auto;
     max-width: 320px;
 }
 
@@ -1289,6 +1289,12 @@ body.view-results #view-results .app-container {
     vertical-align: middle;
 }
 
+.icon-svg svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
 .icon-svg.icon-fill {
     fill: currentColor;
     stroke: none;
@@ -1444,4 +1450,10 @@ body:not(.menu-hidden) .handle-icon .icon-svg {
     width: 24px;
     height: 24px;
 }
+
+.btn .icon-png {
+    width: 24px;
+    height: 24px;
+}
+
 
