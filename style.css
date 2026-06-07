@@ -1431,6 +1431,11 @@ body:not(.menu-hidden) .handle-icon .icon-svg {
     image-rendering: crisp-edges;
 }
 
+.decorative-icon .icon-png {
+    width: 36px;
+    height: 36px;
+}
+
 .vital-icon .icon-png {
     width: 24px;
     height: 24px;
