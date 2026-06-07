@@ -114,15 +114,7 @@ export async function downloadPDF(charactersState, excludeNameState) {
             drawRoundedRect(page, x + 3, y + 3, width - 6, height - 6, 6, undefined, COLOR_GOLD, 0.5);
 
             // 2. Header (Name, Race, Profession)
-            if (excludeName) {
-                page.drawText("Name: _______________________", {
-                    x: x + 12,
-                    y: y + height - 20,
-                    size: 12,
-                    font: fonts.helveticaBoldFont,
-                    color: COLOR_TEXT_MAIN
-                });
-            } else {
+            if (!excludeName) {
                 page.drawText(char.name, {
                     x: x + 12,
                     y: y + height - 20,

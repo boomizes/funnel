@@ -86,12 +86,6 @@ function toggleMenuBar() {
     menuBarHidden = !menuBarHidden;
     localStorage.setItem('menuBarHidden', menuBarHidden);
     applyMenuBarState();
-    
-    if (menuBarHidden) {
-        showToast('Control panel hidden.');
-    } else {
-        showToast('Control panel visible.');
-    }
 }
 
 // Apply menu bar state to DOM
@@ -372,7 +366,7 @@ function renderCharacters() {
         inventoryHtml += `<li class="coins-item"><img src="coin.png" class="icon-png" alt="Coins"> ${char.coins}</li>`;
 
         const nameDisplay = excludeNameState 
-            ? `<div class="card-title nameless-input">Name: ______________________</div>`
+            ? `<h3 class="card-title" style="visibility: hidden;">&nbsp;</h3>`
             : `<h3 class="card-title">${char.name}</h3>`;
 
         card.innerHTML = `

@@ -487,7 +487,6 @@ body.menu-hidden .top-menu-bar {
     margin: 0 auto;
     overflow: hidden;
     position: relative;
-    border-radius: 12px;
 }
 
 /* Character Cards Grid as Carousel Slider */
@@ -852,7 +851,7 @@ body.menu-hidden .top-menu-bar {
 .card-btn:hover {
     background: var(--color-parchment-border);
     color: #fff;
-    transform: scale(1.1);
+    transform: translateY(-2px);
 }
 
 .card-btn.btn-delete:hover {
