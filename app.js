@@ -127,7 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
         saveAppState();
     });
 
-    // Fetch and parse perchance lists and first names
+    // Fetch and parse perchance lists, first names, and last name components
     Promise.all([
         fetch('perchance_lists.txt').then(response => {
             if (!response.ok) throw new Error('Failed to load perchance_lists.txt');
@@ -136,9 +136,13 @@ document.addEventListener('DOMContentLoaded', () => {
         fetch('first_names.txt').then(response => {
             if (!response.ok) throw new Error('Failed to load first_names.txt');
             return response.text();
+        }),
+        fetch('last_name_components.txt').then(response => {
+            if (!response.ok) throw new Error('Failed to load last_name_components.txt');
+            return response.text();
         })
     ])
-        .then(([perchanceText, namesText]) => {
+        .then(([perchanceText, namesText, componentsText]) => {
             parsedRoots = parsePerchanceText(perchanceText);
             
             // Construct FirstName node manually from first_names.txt
@@ -147,7 +151,13 @@ document.addEventListener('DOMContentLoaded', () => {
             firstNameNode.children = firstNames.map(name => new PerchanceNode(name, 2));
             parsedRoots.FirstName = firstNameNode;
 
-            console.log('Perchance lists and first names successfully loaded.');
+            // Construct LastNameComponent node manually from last_name_components.txt
+            const lastNameComponents = componentsText.split(/\r?\n/).map(line => line.trim()).filter(Boolean);
+            const lastNameComponentNode = new PerchanceNode("LastNameComponent", 0);
+            lastNameComponentNode.children = lastNameComponents.map(comp => new PerchanceNode(comp, 2));
+            parsedRoots.LastNameComponent = lastNameComponentNode;
+
+            console.log('Perchance lists, first names, and last name components successfully loaded.');
         })
         .catch(err => {
             console.error(err);
