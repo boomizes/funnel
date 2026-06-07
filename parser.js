@@ -20,8 +20,9 @@ export function parsePerchanceText(text) {
             continue;
         }
 
-        // Skip comments starting with //
-        if (lineRaw.trim().startsWith("//")) {
+        // Skip comments starting with // or #
+        const trimmed = lineRaw.trim();
+        if (trimmed.startsWith("//") || trimmed.startsWith("#")) {
             continue;
         }
 
